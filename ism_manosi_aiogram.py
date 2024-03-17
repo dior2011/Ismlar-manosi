@@ -16,6 +16,11 @@ dp = Dispatcher()
 async def command_start_handler(message: Message) -> None:
     await message.answer(text="Assalomu alaykum, ism yozing!")
 
+@dp.message(Command('help'))
+async def help_handler(message: Message):
+    await message.answer(text="<b>/start</b> - botni ishga tushirish\nIsm yozing!")
+
+
 @dp.message(F.text) 
 async def ism_func(message: Message):
     text = ismlar_manosi(message.text)
